@@ -1,5 +1,6 @@
 package com.peteremo.basicapp.di
 
+import com.peteremo.basicapp.util.Urls.TODO_API_URL
 import com.peteremo.data.api.ToDoApi
 import dagger.Module
 import dagger.Provides
@@ -14,7 +15,7 @@ object ApiModule {
 
     @Provides
     fun providesToDoApi(): ToDoApi = Retrofit.Builder()
-        .baseUrl("https://jsonplaceholder.typicode.com")
+        .baseUrl(TODO_API_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(ToDoApi::class.java)
